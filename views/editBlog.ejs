@@ -1,0 +1,38 @@
+<!-- <%- include("./partials/header") %> -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="./uploads/css/compose_blog.css">
+    <link rel="stylesheet" href="./uploads/css/nav.css">
+  
+  </head>
+
+<%- include("./partials/navbar") %>
+
+<div class="container mt-5">
+    <h3 class="my-3">Compose Your Report Here... 😍 ✍️</h3>
+    <form action="/edit/<%= blog._id %>" method="POST" enctype="multipart/form-data">
+        <input type="text" value="<%= blog.title %>" name="title" placeholder="Enter Title" class="form-control" required>
+        <% let my_tags=[] 
+        blog.tags.forEach((item)=>{ 
+           my_tags.push("#"+item); 
+         }) %>
+        <input type="text" value="<%= my_tags.join(',')%>" name="tags1" placeholder="Enter tags"  class="mt-3 form-control" required>
+        <textarea name="content" cols="30" rows="10" class="mt-3 form-control" placeholder="Enter Content Here..."
+            required><%= blog.content %></textarea>
+            <label class="filebutton">
+                Browse File!
+               <span><input type="file" class="file" name="report" required></span>
+            </label>
+        <input type="submit" value="Save Changes" class="mt-5 btn btn-md btn-danger">
+    </form>
+</div>
+
+<%- include("./partials/footer") %>

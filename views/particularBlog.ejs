@@ -1,0 +1,69 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="./uploads/css/login.css">
+    <style>
+        body {
+           background-color: #19123B;
+        }
+    </style>
+  
+  </head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<body>
+    <%
+    let date = null;
+            var date1 = new Date(blog.postedAt);
+            var date2 = new Date();
+            var diffDays = date2.getDate() - date1.getDate(); 
+            if(diffDays ==0)
+                date = "Today";
+            else
+                date = diffDays+" days ago";
+            %>
+    <div class="container mt-5 py-5">
+
+        <div class="card mt-3">
+            <div class="card-body" style="border: 1px solid;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 3px 2px #7411FF;">
+                <!-- <p >Published at: <%= blog.postedAt %> </p> -->
+                <div>
+                    <button id="like"><i class="fa fa-thumbs-up" aria-hidden="true"></i> </button>
+                </div>
+                <p >Published by <strong><%= blog.UserName %></strong> at  <%= date %>  </p>
+                <h5 class="card-title"><%= blog.title %> </h5>
+                <p class="card-text"><%= blog.content%> </p>
+                <br>
+                <embed src="/<%= blog.stored_filename%>" width="500" height="500" type="application/pdf">
+        
+        </div>
+        </div>
+        <div class = "mt-5">
+            <a href="/"><button type="submit" class="btn btn-primary" style="margin-left : 450px">Go To Home</button></a>
+        </div>
+</body>
+<script>
+    $('#like').click((event)=>{
+        console.log('clicekd');
+        $.post('/likes',{
+                likes : 1
+            },
+            function (data){
+                console.log(data);
+            },
+            'json');
+    });
+</script>
+
+
+<%- include("./partials/footer") %>

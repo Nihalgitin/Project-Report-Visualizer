@@ -1,0 +1,50 @@
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+  <link rel="stylesheet" href="./uploads/css/login.css">
+
+</head>
+
+
+  <div class="container">
+    <div class="row d-flex justify-content-center mt-5">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card py-3 px-2">
+          <div class="division">
+            <div class="row">
+              <div class="col-3"><div class="line l"></div></div>
+              <div class="col-6"><span>PLEASE LOGIN HERE</span></div>
+              <div class="col-3"><div class="line r"></div></div>
+            </div>
+          </div>
+          <form class="myform" method="post" action="/login">
+            <div class="form-group">
+                <input type="username" class="form-control" placeholder="username" name="username" id="username">
+              </div>
+             <div class="form-group">
+                <input type="password" class="form-control" placeholder="password" name="password" id="password">
+              </div>
+              <% if(error_message.length !=0){ %>
+                <h6><%= error_message[0] %></h6>
+              <% } %>
+              <div class="form-group mt-3">
+                <button type="submit" class="btn btn-block btn-primary btn-lg"><small><i class="far fa-user pr-2"></i>login</small></button>
+              </div>
+              <div class="form-group mt-3">
+                <p>Don't Have An Account ? <a href="/signup">SignUp</a></p>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%- include("./partials/footer") %>

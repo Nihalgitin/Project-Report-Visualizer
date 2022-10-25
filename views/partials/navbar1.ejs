@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-2">
+    <div class="container">
+        <a class="navbar-brand" href="/">Repourt</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <!-- <li class="nav-item active">
+                    <a id="H" class="nav-link" href="/compose">Compose <span class="sr-only">(current)</span></a>
+                </li> -->
+                <% if(typeof user == "undefined"){%>
+            
+                <li class=" nav-css nav-item active">
+                    <a id="L" class="nav-link"  onMouseOver="this.style.color='#19123B'" onMouseOut="this.style.color='#FFF'" href="/login">Login<span class="sr-only">(current)</span></a>
+                </li>
+                
+                <li class=" nav-css2 nav-item active">
+                    <a id="D" class="nav-link"  onMouseOver="this.style.color='#19123B'" onMouseOut="this.style.color='#FFF'" href="/signup">Signup<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-css2 nav-item active">
+                    <a id="D" class="nav-link" onMouseOver="this.style.color='#19123B'" onMouseOut="this.style.color='#FFF'" href="/stats">Stats<span class="sr-only">(current)</span></a>
+                </li> 
+            
+                <%}%>
+                <%if(typeof user != 'undefined'){%>
+                    <li class="nav-link" style="color:white;"><%= user.username %></li>
+                    <li class="nav-link" style="color:white;"><a href="/logout">Log Out</a></li>
+                <%}%>
+            </ul>
+
+        </div>
+
+</nav>

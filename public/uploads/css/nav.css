@@ -1,0 +1,67 @@
+nav {
+  background: linear-gradient(135deg, rgba(176,106,252,1) 39%,rgba(116,17,255,1) 101%);
+}
+
+.navbar-brand {
+  display: inline-block;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+  position: relative;
+  left: -125px;
+  font-size: 35px;
+}
+.nav-css{
+  font-size: 20px;
+}
+.nav-css:hover {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav-css2{
+  font-size: 20px;
+}
+.nav-css2:hover{
+  font-size: 22px;
+  font-weight:bold;
+
+}
+
+.nav-css3{
+  font-size:20px;
+}
+.nav-css3:hover {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav-css4:hover {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+
+/* #H {
+    margin-right:20px;
+  }
+  
+  
+#L {
+    margin-right:20px;
+  }
+  
+#D {
+    margin-right:20px;
+  }
+  
+#sub {
+    text-align: center;
+    } */
+
+
+
+

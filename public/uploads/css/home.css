@@ -1,0 +1,21 @@
+.card{
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #212042;
+	color: #57557A;
+    box-shadow: 5px 5px 3px 2px #7411FF;
+}
+    .card:hover{
+        background-color:#B06AFC;
+        color:white;
+        box-shadow: 5px 5px 3px 2px #19123B;
+        transition: .3s all ease-in-out;
+
+    }
+
+
+body{
+        background-color: #19123B;
+        /* background-color: white; */
+    }

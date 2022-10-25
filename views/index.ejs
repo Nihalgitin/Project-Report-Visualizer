@@ -1,0 +1,43 @@
+<%- include("./partials/header") %>
+<% if (C===1) { %>
+    <%- include("./partials/navbar") %>
+<% } %>
+<% if(C!==1) { %>
+    <%- include("./partials/navbar1") %>
+<% } %>
+
+
+    <div class="container mt-5 py-5">
+        <h3 style="text-align:center; color:#7411FF;">All Reports 📝</h3>
+
+        <% blogs.reverse() %> 
+
+        <% blogs.forEach(blog => { 
+            let date = null;
+            var date1 = new Date(blog.postedAt);
+            var date2 = new Date();
+            var diffDays = date2.getDate() - date1.getDate(); 
+            if(diffDays ==0)
+                date = "Today";
+            else
+                date = diffDays+" days ago";
+            %>
+            <div class="card mt-3">
+            <div class="card-body" style="border: 1px solid;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 3px 2px #7411FF;">
+                <!-- <p >Published at: <%= blog.postedAt %> </p> -->
+                <p >Published by <strong><%= blog.UserName %></strong> at  <span id="my_date"><%= date %> </span> </p>
+                <h5 class="card-title"><%= blog.title %> </h5>
+                <p class="card-text"><%= blog.content.split(' ').slice(0, 100).join(' ') %> .... <a href="/blog/<%= blog._id %>">Read More</a></p>
+                <a href=" /blog/<%= blog._id %>" class="btn btn-primary">Full Article...</a>
+                <!-- <a href=" /delete/<%= blog._id %>" class="btn btn-danger">Delete</a>
+                <a href=" /edit/<%= blog._id %>" class="btn btn-warning">Edit</a> -->
+            </div>
+        </div>
+        <%}) %>
+
+
+    </div>
+<%- include("./partials/footer") %>
